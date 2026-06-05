@@ -47,6 +47,10 @@
   .foot{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-4);flex-wrap:wrap;gap:10px}
   .foot .mono{font-family:var(--mono)}
   .note{font-family:var(--mono);font-size:12px;color:var(--text-4);border-left:2px solid var(--violet);padding-left:12px;margin:18px 0}
+  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  .video-card{border:0.5px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
+  .video-card iframe{width:100%;aspect-ratio:16/9;border:0}
+  @media(max-width:780px){.video-grid{grid-template-columns:1fr}}
   @media(max-width:680px){.gallery{grid-template-columns:1fr}.metabar{gap:22px}}
 </style>
 </head>
@@ -61,10 +65,10 @@
 <main class="wrap">
   <p class="ph-eyebrow">GAME DESIGN &middot; ENCOUNTERS, MAPS &amp; ITERATION</p>
   <h1 class="title">Shatterfall</h1>
-  <p class="subtitle">A cooperative sci-fi survival game built on tile-based maps, made with a team of four. I worked on the map layouts, encounter pacing, and difficulty — and helped drive the design through two full playtest-and-iterate cycles.</p>
+  <p class="subtitle">A cooperative sci-fi survival game built on tile-based maps, made with a team of four. I designed the difficulty-scaling system, balanced items, and paced encounters — and helped drive the design through two full playtest-and-iterate cycles.</p>
 
   <div class="metabar">
-    <div class="item"><h4>Role</h4><p>Designer (maps, encounters, systems)</p></div>
+    <div class="item"><h4>Role</h4><p>Designer (difficulty, items, encounters)</p></div>
     <div class="item"><h4>Team</h4><p>Group of 4</p></div>
     <div class="item"><h4>Method</h4><p>GDD · paper prototype · playtesting</p></div>
     <div class="item"><h4>Influences</h4><p>D&amp;D · Subnautica · co-op survival</p></div>
@@ -79,12 +83,12 @@
   <section class="block">
     <h2>Overview</h2>
     <p>Shatterfall is a <strong>cooperative, time-pressured survival game</strong> played across a randomised, tile-based map. Players manage limited turns, scavenge and combine items, and pick classes with distinct strengths — and the map itself gets more hostile as the clock runs down.</p>
-    <p>We built it the fast, honest way: a game design document, a paper prototype, and <strong>repeated playtests that we used to tear the design down and rebuild it</strong>. My focus was the part of the experience a level designer owns — how the space is laid out, how encounters are paced, and how difficulty escalates.</p>
+    <p>We built it the fast, honest way: a game design document, a paper prototype, and <strong>repeated playtests that we used to tear the design down and rebuild it</strong>. My focus was the part of the experience a level designer owns — <strong>how difficulty escalates across the map, how items are balanced, and how encounters are paced</strong>.</p>
   </section>
 
   <section class="block">
     <h2>Design pillars</h2>
-    <p>We set our pillars early in the GDD so every later decision could be judged against them — a method I borrowed from Subnautica's Charlie Cleveland to prevent feature creep and keep the experience focused.</p>
+    <p>We set our pillars early in the GDD so every later decision could be judged against them — applying design-pillar feedback our team gathered from Subnautica's Charlie Cleveland to prevent feature creep and keep the experience focused.</p>
     <figure>
       <img src="assets/web/shatterfall-pillars.jpg" alt="Shatterfall design pillars: Intense and Strategic, Teamwork is Essential, Fear of the Unknown" loading="lazy">
       <figcaption>// design pillars — intense &amp; strategic, teamwork essential, fear of the unknown</figcaption>
@@ -92,8 +96,8 @@
   </section>
 
   <section class="block">
-    <h2>Level &amp; encounter design</h2>
-    <p>The map is the game. I worked on the <strong>tile-based layouts and the rules that govern them</strong>, tuning the space and the threat together:</p>
+    <h2>Difficulty, items &amp; encounter design</h2>
+    <p>The map is the game. I designed the <strong>difficulty-scaling system that lives in the progressive tiled map</strong>, tuning the space and the threat together:</p>
     <ul class="bullets">
       <li><strong>Reduced the map-tile size</strong> to tighten the play space and force players into contact rather than letting them sprawl.</li>
       <li>Made <strong>enemies spawn on every tile at night</strong>, so the map turns hostile as time runs out — escalating danger through the space itself, not just numbers on a card.</li>
@@ -137,6 +141,15 @@
     <p>Shatterfall is on a tabletop, but the work is the work a level designer does in an engine: <strong>laying out a space, pacing encounters, escalating difficulty, and rebuilding it all from playtest feedback</strong>. The reference points — D&amp;D, Subnautica, layered survival loops — are the same vocabulary I'd bring to a narrative-driven RPG.</p>
   </section>
 
+  <section class="block">
+    <h2>Sizzle reel</h2>
+    <div class="video-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/AoRe4X_zdfQ" title="Shatterfall sizzle reel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+  </section>
+
   <nav class="pager">
     <a href="index.html"><span class="mono">BACK TO</span>All work</a>
     <a href="helmsman.html"><span class="mono">NEXT</span>Helmsman Simulator &rarr;</a>
@@ -146,7 +159,7 @@
 <footer>
   <div class="wrap foot">
     <span>&copy; 2026 Ben Jeffreys</span>
-    <span class="mono"><a href="https://viultimatehd1.artstation.com/" target="_blank" rel="noopener">ArtStation</a> · <a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
+    <span class="mono"><a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
   </div>
 </footer>
 </body>

@@ -40,12 +40,12 @@
   .metabar .item h4{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:6px}
   .metabar .item p{font-size:14px;color:var(--text)}
 
-  .hero-media{margin:34px 0;aspect-ratio:16/9;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;
-    background:radial-gradient(circle at 72% 30%, rgba(93,224,196,0.16), transparent 46%),radial-gradient(circle at 20% 80%, rgba(127,119,221,0.16), transparent 50%),var(--bg-2);
-    display:flex;align-items:center;justify-content:center;position:relative}
-  .hero-media .grid-overlay{position:absolute;inset:0;background-image:linear-gradient(#1c2230 0.5px,transparent 0.5px),linear-gradient(90deg,#1c2230 0.5px,transparent 0.5px);background-size:32px 32px;opacity:0.4}
-  .hero-media .hint{position:relative;font-family:var(--mono);font-size:12px;color:var(--text-3);text-align:center}
-  .hero-media .hint b{color:var(--teal);font-weight:500}
+  .hero-media{margin:34px 0;aspect-ratio:16/9;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;background:var(--bg-2);position:relative}
+  .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
+  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  .video-card{border:0.5px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
+  .video-card iframe{width:100%;aspect-ratio:16/9;border:0}
+  @media(max-width:780px){.video-grid{grid-template-columns:1fr}}
 
   section.block{margin:54px 0}
   section.block h2{font-size:13px;font-family:var(--mono);letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:16px}
@@ -91,9 +91,9 @@
 
 <main class="wrap">
 
-  <p class="ph-eyebrow">AR BROADCAST &middot; REAL-TIME DIGITAL TWIN</p>
-  <h1 class="title">E1 Series Simulator &amp; AR broadcast</h1>
-  <p class="subtitle">Turning live race telemetry into a real-time augmented-reality digital twin for the world's first electric powerboat championship.</p>
+  <p class="ph-eyebrow">AR APP &middot; REAL-TIME DIGITAL TWIN</p>
+  <h1 class="title">E1 Series AR app &amp; broadcast</h1>
+  <p class="subtitle">The augmented-reality app I owned end to end for the world's first electric powerboat championship — and the real-time digital twin it plugged into.</p>
 
   <div class="metabar">
     <div class="item"><h4>Role</h4><p>Junior XR Designer</p></div>
@@ -103,49 +103,41 @@
     <div class="item"><h4>Tools</h4><p>Unreal Engine, Figma</p></div>
   </div>
 
-  <!-- ============ HERO MEDIA ============ -->
-  <!-- REPLACE this whole block with your hero video or image:
-       <video autoplay muted loop playsinline poster="assets/e1-poster.jpg" class="hero-media">
-         <source src="assets/e1-reel.mp4" type="video/mp4">
-       </video>
-       — or —
-       <img class="hero-media" src="assets/e1-hero.jpg" alt="E1 Series AR broadcast">
-  -->
   <div class="hero-media">
-    <div class="grid-overlay"></div>
-    <p class="hint"><b>Hero media goes here</b><br>drop in a showreel clip or a strong still (16:9)</p>
+    <img src="https://img.youtube.com/vi/wrsvTTfnnHo/maxresdefault.jpg" alt="E1 Series digital twin in Unreal Engine">
   </div>
 
   <!-- ============ OVERVIEW ============ -->
   <section class="block">
     <h2>Overview</h2>
     <p>The E1 Series is the world's first electric powerboat racing championship. Badass Studios was brought in to make the racing more legible and exciting for a broadcast audience through augmented reality. I joined the project to help take it from <strong>concept through to on-site delivery</strong>.</p>
-    <p>The headline idea — which I was responsible for conceiving and pitching — was to capture live data from the championship and build a <strong>real-time digital twin of the race</strong>, so viewers could see positions, gaps, and track information rendered as AR over the broadcast feed.</p>
+    <p>The headline idea was a <strong>real-time digital twin of the race</strong> — capturing live data so viewers could see positions, gaps, and track information rendered as AR over the broadcast feed. I <strong>contributed to that concept and its outreach</strong>, and I <strong>owned the AR app</strong> that brought the experience to audiences — making every design decision from UI and UX through to scene composition.</p>
   </section>
 
   <!-- ============ MY ROLE ============ -->
   <section class="block">
     <h2>What I did</h2>
     <ul class="bullets">
-      <li>Owned the <strong>concept and outreach</strong> for the real-time digital-twin project, including the pitch for Epic Games' MegaGrant programme.</li>
-      <li>Designed AR applications on rapid timelines with <strong>real-time data integrations</strong> feeding live race telemetry.</li>
-      <li>Helped design the <strong>E1 Series mobile app</strong>, including the user interface for the companion experience.</li>
+      <li><strong>Owned the E1 AR app end to end</strong> — led development and made every decision from UI and UX through to scene composition.</li>
+      <li>Integrated <strong>live race telemetry</strong> into the AR experience on rapid delivery timelines.</li>
+      <li>Contributed to the <strong>concept and outreach</strong> for the real-time digital-twin project, including support for the Epic Games MegaGrant pitch.</li>
       <li>Ran <strong>quality assurance</strong> across AR broadcast, digital-twin, and simulator builds.</li>
       <li>Handled <strong>on-site setup and operation</strong> of AR broadcast elements and simulators during live events.</li>
       <li>Produced asset breakdowns and supported <strong>project budgeting</strong>.</li>
     </ul>
   </section>
 
-  <!-- ============ GALLERY ============ -->
+  <!-- ============ VIDEOS ============ -->
   <section class="block">
-    <h2>Selected views</h2>
-    <div class="gallery">
-      <!-- REPLACE each .shot with: <img src="assets/e1-1.jpg" alt="..."> -->
-      <div class="shot wide">wide shot — AR overlay on broadcast (16:7)</div>
-      <div class="shot">UI / mobile app screen</div>
-      <div class="shot">digital twin / data view</div>
-      <div class="shot">on-site setup</div>
-      <div class="shot">simulator detail</div>
+    <h2>Video</h2>
+    <p>The E1 digital twin built in Unreal Engine, and the Miami Pro Sim sizzle reel.</p>
+    <div class="video-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/wrsvTTfnnHo" title="E1 Series — Unreal Engine digital twin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/-potR7VruYc" title="E1 Series Miami Pro Sim sizzle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
     </div>
   </section>
 
@@ -156,14 +148,14 @@
     <div class="outcome">
       <div class="stat"><div class="n">Live</div><div class="l">Real-time telemetry into AR broadcast</div></div>
       <div class="stat"><div class="n">Award</div><div class="l">Recognised XR solution for E1</div></div>
-      <div class="stat"><div class="n">Concept&rarr;Site</div><div class="l">Owned pitch through on-site delivery</div></div>
+      <div class="stat"><div class="n">AR app</div><div class="l">Owned end to end — UI, UX, scene comp</div></div>
     </div>
   </section>
 
   <!-- ============ PAGER ============ -->
   <nav class="pager">
     <a href="index.html"><span class="mono">BACK TO</span>All work</a>
-    <a href="project.html"><span class="mono">NEXT</span>Shatterfall &rarr;</a>
+    <a href="archviz.html"><span class="mono">NEXT</span>Architecture Viz &rarr;</a>
   </nav>
 
 </main>
@@ -172,7 +164,6 @@
   <div class="wrap foot">
     <span>&copy; 2026 Ben Jeffreys</span>
     <span class="mono">
-      <a href="https://viultimatehd1.artstation.com/" target="_blank" rel="noopener">ArtStation</a> ·
       <a href="mailto:benjeffreyshd@gmail.com">Email</a>
     </span>
   </div>

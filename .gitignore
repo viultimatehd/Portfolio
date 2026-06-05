@@ -1,15 +1,19 @@
-# macOS AppleDouble metadata files
+# macOS metadata files
 ._*
-
-# Local raw media that should not be committed
-assets/Ben Jeffreys Final Year Project Video.mp4
-assets/IMG_7999.MOV
-assets/IMG_8001.MOV
-
-# AppleDouble / macOS metadata files in tracked folders
-assets/._*
-site/._*
-site/assets/web/._*
-
-# macOS system files
 .DS_Store
+
+# Raw large source files — not needed for the deployed site
+# (web-optimised versions live in assets/web/ and are tracked)
+assets/*.mov
+assets/*.MOV
+assets/*.mp4
+assets/*.MP4
+assets/*.pdf
+!assets/Ben-Jeffreys-CV.pdf
+
+# Duplicate staging folder — site is served from repo root
+site/
+
+# Unused scan exports
+assets/web/_pdfcheck-*.jpg
+assets/web/_scan-*.jpg

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Real-time Mocap into AR — Ben Jeffreys</title>
-<meta name="description" content="Case study: streaming live motion capture into augmented reality, by Ben Jeffreys." />
+<title>Architecture Visualisation — Ben Jeffreys</title>
+<meta name="description" content="Case study: a real-time architectural visualisation built in Unreal Engine, by Ben Jeffreys." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -27,7 +27,8 @@
   .metabar{display:flex;flex-wrap:wrap;gap:34px;margin:34px 0 0;padding:22px 0;border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line)}
   .metabar .item h4{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:6px}
   .metabar .item p{font-size:14px;color:var(--text)}
-  .hero-media{margin:34px 0;width:100%;aspect-ratio:16/9;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;object-fit:cover;background:var(--bg-2)}
+  .hero-media{margin:34px 0;width:100%;aspect-ratio:16/9;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;background:var(--bg-2);position:relative}
+  .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
   section.block{margin:54px 0}
   section.block h2{font-size:13px;font-family:var(--mono);letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:16px}
   section.block p{color:var(--text-2);font-size:16.5px;margin-bottom:16px;max-width:680px}
@@ -35,17 +36,15 @@
   ul.bullets{list-style:none;max-width:680px}
   ul.bullets li{color:var(--text-2);font-size:16px;padding:9px 0 9px 22px;position:relative;border-top:0.5px solid var(--line)}
   ul.bullets li:before{content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
-  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
-  .gallery img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:0.5px solid var(--line-2);background:var(--bg-3)}
-  .gallery img.wide{grid-column:1 / -1;aspect-ratio:16/7}
+  .video-card{border:0.5px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-2);margin:24px 0}
+  .video-card iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
   .pager{display:flex;justify-content:space-between;border-top:0.5px solid var(--line);margin-top:60px;padding:26px 0;font-size:14px}
-  .pager a:hover{color:var(--text)}
+  .pager a{color:var(--text-2)}.pager a:hover{color:var(--text)}
   .pager .mono{font-family:var(--mono);font-size:11px;color:var(--text-4);display:block;margin-bottom:4px}
   footer{border-top:0.5px solid var(--line);padding:28px 0;margin-top:10px}
   .foot{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-4);flex-wrap:wrap;gap:10px}
   .foot .mono{font-family:var(--mono)}
-  .note{font-family:var(--mono);font-size:12px;color:var(--text-4);border-left:2px solid var(--line-2);padding-left:12px;margin-top:18px}
-  @media(max-width:680px){.gallery{grid-template-columns:1fr}.metabar{gap:22px}}
+  @media(max-width:680px){.metabar{gap:22px}}
 </style>
 </head>
 <body>
@@ -57,46 +56,41 @@
 </header>
 
 <main class="wrap">
-  <p class="ph-eyebrow">MOTION CAPTURE &middot; AUGMENTED REALITY</p>
-  <h1 class="title">Real-time motion capture into AR</h1>
-  <p class="subtitle">Streaming a live performer's motion, captured on an optical mocap stage, straight into an augmented-reality headset in real time.</p>
+  <p class="ph-eyebrow">UNREAL ENGINE &middot; REALTIME VIZ</p>
+  <h1 class="title">Architecture Visualisation</h1>
+  <p class="subtitle">A real-time architectural walkthrough built and rendered live in Unreal Engine — demonstrating spatial layout, lighting, and materials in an interactive environment.</p>
 
   <div class="metabar">
-    <div class="item"><h4>Role</h4><p>XR designer</p></div>
-    <div class="item"><h4>Context</h4><p>CCIXR · Univ. of Portsmouth</p></div>
-    <div class="item"><h4>Capture</h4><p>Vicon · optical mocap</p></div>
-    <div class="item"><h4>Output</h4><p>AR headset · Meta Quest 3</p></div>
-    <div class="item"><h4>Engine</h4><p>Unreal Engine 5</p></div>
+    <div class="item"><h4>Role</h4><p>Designer &amp; developer</p></div>
+    <div class="item"><h4>Context</h4><p>University of Portsmouth</p></div>
+    <div class="item"><h4>Engine</h4><p>Unreal Engine</p></div>
+    <div class="item"><h4>Type</h4><p>Real-time visualisation</p></div>
   </div>
 
-  <video class="hero-media" autoplay muted loop playsinline poster="assets/web/mocap-ar-poster.jpg">
-    <source src="assets/web/mocap-ar-loop.mp4" type="video/mp4">
-  </video>
+  <div class="hero-media">
+    <img src="https://img.youtube.com/vi/qU6kh3WD3HM/maxresdefault.jpg" alt="Real-time architecture visualisation in Unreal Engine">
+  </div>
 
   <section class="block">
     <h2>Overview</h2>
-    <p>Working in the Centre for Creative and Immersive XR, I explored a live pipeline that takes a performer's movement from an <strong>optical motion-capture stage</strong> and drives a character that a second person can see, <strong>in real time, through an AR headset</strong>.</p>
-    <p>It sits at the intersection of two things I work with constantly — virtual production / mocap stages, and headset interaction design — and it's a foundation for live, co-located XR experiences where a real performer shares space with an audience.</p>
+    <p>This project explores how <strong>Unreal Engine's real-time rendering pipeline</strong> can be used to produce architectural visualisations that go beyond static renders — letting viewers navigate the space interactively and experience lighting, scale, and materials as they would in a game engine.</p>
+    <p>The work sits at the intersection of spatial design and game-engine craft, using the same tools and thinking I bring to any immersive experience: <strong>lay out the space, light it, and iterate until it reads correctly in motion</strong>.</p>
   </section>
 
   <section class="block">
-    <h2>What I did</h2>
+    <h2>What I built</h2>
     <ul class="bullets">
-      <li>Set up <strong>real-time, high-quality previsualisation</strong> during capture using Autodesk MotionBuilder and Unreal Engine 5.</li>
-      <li>Operated capture on a <strong>Vicon Shogun</strong> optical system and cleaned the resulting data.</li>
-      <li>Streamed the live skeleton into an <strong>AR headset</strong> so a co-located viewer sees the performance mapped into their own space.</li>
-      <li>Tuned the experience for <strong>low latency and legibility</strong>, the two things that make or break a live mocap-to-AR loop.</li>
+      <li>Modelled and dressed the environment using Unreal Engine's toolset, focusing on <strong>spatial legibility and material fidelity</strong>.</li>
+      <li>Set up a <strong>real-time lighting rig</strong> — natural and artificial — to give the space mood and depth rather than a flat, static look.</li>
+      <li>Packaged the result as a <strong>navigable walkthrough</strong>, not just a flythrough render.</li>
     </ul>
   </section>
 
   <section class="block">
-    <h2>Selected views</h2>
-    <div class="gallery">
-      <img class="wide" src="assets/web/mocap-studio-1-poster.jpg" alt="Optical motion capture stage with performer and headset user" loading="lazy">
-      <img src="assets/web/mocap-studio-2-poster.jpg" alt="Performer in mocap suit on stage" loading="lazy">
-      <img src="assets/web/mocap-ar-2-poster.jpg" alt="Viewing the captured motion through an AR headset" loading="lazy">
+    <h2>Walkthrough</h2>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/qU6kh3WD3HM" title="Architecture Visualisation — real-time Unreal Engine walkthrough" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <p class="note">// Swap in cleaner stills or a longer clip whenever you like — files live in assets/web/.</p>
   </section>
 
   <nav class="pager">
@@ -108,7 +102,7 @@
 <footer>
   <div class="wrap foot">
     <span>&copy; 2026 Ben Jeffreys</span>
-    <span class="mono"><a href="https://viultimatehd1.artstation.com/" target="_blank" rel="noopener">ArtStation</a> · <a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
+    <span class="mono"><a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
   </div>
 </footer>
 </body>

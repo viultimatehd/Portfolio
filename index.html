@@ -4,7 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Ben Jeffreys — Immersive XR Designer</title>
-<meta name="description" content="Ben Jeffreys is an immersive XR designer. Game, spatial and systems design work — including tile-based map and encounter design and a VR trainer used by the Royal Navy — plus shipped XR for Apple Vision Pro and the E1 Series." />
+<meta name="description" content="Ben Jeffreys is an immersive XR and experience designer with an acting and motion-capture-directing background. Game, spatial and systems design — including tile-based difficulty and encounter design, a VR helmsman trainer built for Royal Navy training, and the AR app for the award-winning E1 Series." />
 
 <!-- Open Graph / social preview -->
 <meta property="og:title" content="Ben Jeffreys — Immersive XR Designer" />
@@ -129,6 +129,8 @@
   .facts li span{color:var(--text-4)}
   .skills{margin-top:18px;display:flex;flex-wrap:wrap;gap:8px}
   .skills .chip{font-size:12px;padding:5px 11px;border-radius:7px;border:0.5px solid var(--line-2);color:var(--text-2)}
+  .skills-label{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;color:var(--text-4);text-transform:uppercase;margin-top:26px}
+  .skills .chip.game{border-color:rgba(93,224,196,0.38);color:var(--teal)}
 
   /* ---------- contact ---------- */
   .contact-band{margin:70px 0;border-radius:var(--radius);border:0.5px solid var(--line-2);
@@ -143,6 +145,11 @@
   .foot{display:flex;justify-content:space-between;align-items:center;font-size:12.5px;color:var(--text-4);flex-wrap:wrap;gap:10px}
   .foot .mono{font-family:var(--mono)}
   .foot a:hover{color:var(--text-2)}
+
+  /* ---------- showreel ---------- */
+  .showreel{margin:0 0 10px}
+  .video-card{border:0.5px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
+  .video-card iframe{width:100%;aspect-ratio:16/9;border:0;display:block}
 
   /* ---------- responsive ---------- */
   @media(max-width:760px){
@@ -166,7 +173,7 @@
     <nav class="nav-links" id="navlinks">
       <a href="#work">Work</a>
       <a href="#about">About</a>
-      <a href="#" >Resume</a><!-- TODO: link to your CV PDF, e.g. assets/Ben-Jeffreys-CV.pdf -->
+      <a href="assets/Ben-Jeffreys-CV.pdf" target="_blank" rel="noopener">Resume</a>
       <a href="#contact" class="contact">Contact</a>
     </nav>
     <button class="menu-btn" id="menuBtn" aria-label="Toggle menu">&#9776;</button>
@@ -178,19 +185,29 @@
   <!-- ============ HERO ============ -->
   <section class="hero">
     <!-- Hero background loop. Swap the source for any other clip in assets/web/ (e.g. mocap-ar-loop.mp4). -->
-    <video autoplay muted loop playsinline poster="assets/web/helmsman-poster.jpg"
+    <video autoplay muted loop playsinline poster="assets/web/mocap-ar-poster.jpg"
            style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.26">
-      <source src="assets/web/helmsman-loop.mp4" type="video/mp4">
+      <source src="assets/web/mocap-ar-loop.mp4" type="video/mp4">
     </video>
     <div class="grid-overlay"></div>
     <div class="hero-inner">
       <p class="eyebrow">IMMERSIVE XR DESIGNER</p>
       <h1>Designing immersive games and experiences — and building, testing, and rebuilding them until they work.</h1>
-      <p class="lede">XR designer with a games-design heart. I've laid out spaces and paced encounters on a tabletop game, recreated a believable ship's bridge in VR for the Royal Navy, and shipped XR for Take-Two (Apple Vision Pro) and the award-winning E1 Series. First-Class BSc, currently at Badass Studios — and keen to move into level &amp; game design.</p>
+      <p class="lede">XR designer with a games-design heart and a performer's eye for a scene. I've designed difficulty and encounter pacing on a tabletop game, recreated a ship's bridge in VR for Royal Navy training, owned the AR app on the award-winning E1 Series, and shipped XR for Take-Two on Apple Vision Pro — and I direct and perform on motion-capture stages. First-Class BSc, currently at Badass Studios, and keen to move into game &amp; experience design.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#work">View work</a>
         <a class="btn btn-ghost" href="#contact">Get in touch</a>
       </div>
+    </div>
+  </section>
+
+  <!-- ============ SHOWREEL ============ -->
+  <section class="showreel">
+    <div class="sec-head" style="margin-top:48px">
+      <h2>Showreel</h2>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/ruT21W8QxxA" title="Ben Jeffreys showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </section>
 
@@ -209,7 +226,7 @@
         </div>
         <div class="meta">
           <h3>Shatterfall</h3>
-          <p>Co-op survival game · map layout, encounter pacing &amp; playtest iteration</p>
+          <p>Co-op survival game · difficulty scaling, item balancing &amp; encounter pacing</p>
         </div>
       </a>
 
@@ -220,7 +237,7 @@
         </div>
         <div class="meta">
           <h3>Helmsman Simulator</h3>
-          <p>Lead design · recreating a ship's bridge as a believable space · used by the Royal Navy</p>
+          <p>Lead design · recreating a ship's bridge as a believable space · built for Royal Navy training</p>
         </div>
       </a>
 
@@ -230,16 +247,15 @@
           <img src="assets/web/mocap-studio-1-poster.jpg" alt="Real-time motion capture into AR" loading="lazy">
         </div>
         <div class="meta">
-          <h3>Real-time Mocap &rarr; AR</h3>
-          <p>Live motion capture streamed into augmented reality</p>
+          <h3>Mocap &rarr; AR</h3>
+          <p>Performance capture into AR · Apple Vision Pro &amp; live Meta Quest 3</p>
         </div>
       </a>
 
       <a class="card c-teal" href="project.html">
         <div class="thumb">
           <span class="tag">AR · BROADCAST</span>
-          <!-- TODO: add E1 footage/still as assets/web/e1-poster.jpg then: <img src="assets/web/e1-poster.jpg" alt="E1 Series Simulator"> -->
-          <i class="ph">&#9678;</i>
+          <img src="https://img.youtube.com/vi/wrsvTTfnnHo/hqdefault.jpg" alt="E1 Series AR broadcast and digital twin" loading="lazy">
         </div>
         <div class="meta">
           <h3>E1 Series Simulator</h3>
@@ -247,11 +263,10 @@
         </div>
       </a>
 
-      <a class="card c-teal" href="#">
+      <a class="card c-teal" href="archviz.html">
         <div class="thumb">
           <span class="tag">REALTIME · VIZ</span>
-          <!-- TODO: add Architecture Viz still as assets/web/archviz-poster.jpg -->
-          <i class="ph">&#9712;</i>
+          <img src="https://img.youtube.com/vi/qU6kh3WD3HM/hqdefault.jpg" alt="Real-time architecture visualisation" loading="lazy">
         </div>
         <div class="meta">
           <h3>Architecture Visualisation</h3>
@@ -268,18 +283,31 @@
     <div class="about">
       <div class="bio">
         <p>I'm an <strong>immersive XR designer</strong> — I take games and experiences from concept to delivery, and I like the unglamorous part of the craft: <strong>laying out a space, pacing its encounters, and rebuilding it from playtest feedback</strong>. I set design pillars early, prototype fast, and iterate hard.</p>
-        <p>On <strong>Shatterfall</strong>, a tabletop game built with a team of four, I worked on the map layouts, enemy spawning, and difficulty across two full external playtest cycles. I took a lead/production role on a VR <strong>helmsman trainer adopted by the Royal Navy</strong>, recreating a ship's bridge as a believable, learnable space. I've also shipped XR for <strong>Take-Two Interactive</strong> (Apple Vision Pro) and the award-winning <strong>E1 Series</strong>, and graduated with First-Class Honours and an Outstanding Student award.</p>
-        <p>I'm a lifelong RPG and FPS player — D&amp;D, Subnautica and BG3-style systems are the vocabulary I think in — and my next step is moving into <strong>level and game design</strong>. I'm comfortable across the pipeline: Unreal, Unity, Blender, Figma, and motion-capture stages.</p>
+        <p>On <strong>Shatterfall</strong>, a tabletop game built with a team of four, I designed the <strong>difficulty-scaling system</strong> built on a progressive tiled map, balanced items, and paced encounters across two full external playtest cycles. I took a lead/production role on a VR <strong>helmsman trainer</strong>, recreating a ship's bridge as a believable, learnable space — built for our client MetaverseVR to deploy for <strong>Royal Navy training</strong>. On the award-winning <strong>E1 Series</strong> I <strong>owned the AR companion app end to end</strong>, and I've shipped XR for <strong>Take-Two Interactive</strong> on Apple Vision Pro. I graduated with First-Class Honours and an Outstanding Student award.</p>
+        <p>Before games I trained and worked as an <strong>actor</strong>, and I now <strong>perform and direct on the motion-capture stage</strong> at Portsmouth's CCIXR. That theatre background is part of how I design: staging a scene, blocking movement, and reading how a space performs for the person inside it — and it makes me fluent in the <strong>mocap pipeline</strong>, from the volume to the engine.</p>
+        <p>I'm a lifelong RPG and FPS player, and the games below are my touchstones — <strong>Star Wars: Knights of the Old Republic</strong> and <strong>Baldur's Gate 3</strong> for reactive, character-driven RPG systems, <strong>Elden Ring</strong> for environmental storytelling and world layout, and <strong>Titanfall 2</strong> for some of the sharpest level design in any shooter. My next step is moving into <strong>game and experience design</strong>, and I'm comfortable across the pipeline: Unreal, Unity, Figma, Miro, Notion, Jira, and motion-capture stages.</p>
+        <p class="skills-label">Skills</p>
         <div class="skills">
           <span class="chip">XR / VR / AR design</span>
           <span class="chip">Encounter &amp; systems design</span>
           <span class="chip">Playtest iteration</span>
+          <span class="chip">Motion-capture pipeline</span>
+          <span class="chip">Performance direction</span>
           <span class="chip">Unreal Engine</span>
           <span class="chip">Unity</span>
           <span class="chip">Blueprints</span>
-          <span class="chip">Blender</span>
           <span class="chip">Figma</span>
+          <span class="chip">Miro</span>
+          <span class="chip">Notion</span>
+          <span class="chip">Jira</span>
           <span class="chip">Motion capture</span>
+        </div>
+        <p class="skills-label">Inspirations</p>
+        <div class="skills">
+          <span class="chip game">Star Wars: KOTOR</span>
+          <span class="chip game">Baldur's Gate 3</span>
+          <span class="chip game">Elden Ring</span>
+          <span class="chip game">Titanfall 2</span>
         </div>
       </div>
       <aside class="facts">
@@ -290,7 +318,7 @@
           <li>Now <span>Badass Studios</span></li>
           <li>Degree <span>BSc VR/AR · First</span></li>
           <li>Award <span>TIGA Grad finalist</span></li>
-          <li>Seeking <span>Level &amp; game design</span></li>
+          <li>Seeking <span>Game &amp; experience design</span></li>
         </ul>
       </aside>
     </div>
@@ -302,9 +330,7 @@
     <p>Open to game and level design positions. The fastest way to reach me is email.</p>
     <div class="contact-links">
       <a class="btn btn-primary" href="mailto:benjeffreyshd@gmail.com">benjeffreyshd@gmail.com</a>
-      <a class="btn btn-ghost" href="https://viultimatehd1.artstation.com/" target="_blank" rel="noopener">ArtStation</a>
-      <!-- TODO: add your LinkedIn URL -->
-      <a class="btn btn-ghost" href="#">LinkedIn</a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/ben-jeffreys-2336631a3" target="_blank" rel="noopener">LinkedIn</a>
     </div>
   </section>
 
@@ -315,8 +341,7 @@
   <div class="wrap foot">
     <span>&copy; 2026 Ben Jeffreys</span>
     <span class="mono">
-      <a href="https://viultimatehd1.artstation.com/" target="_blank" rel="noopener">ArtStation</a> ·
-      <a href="#">LinkedIn</a> ·
+      <a href="https://www.linkedin.com/in/ben-jeffreys-2336631a3" target="_blank" rel="noopener">LinkedIn</a> ·
       <a href="mailto:benjeffreyshd@gmail.com">Email</a>
     </span>
   </div>
