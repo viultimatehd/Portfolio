@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Helmsman Simulator — Ben Jeffreys</title>
+<meta name="description" content="Case study: a VR helmsman training simulator for a Type 45 Destroyer, adopted by the Royal Navy. Lead and production design by Ben Jeffreys." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{--bg:#0c0d10;--bg-2:#101319;--bg-3:#14171d;--line:#1e2025;--line-2:#23262d;--text:#f4f5f7;--text-2:#aeb2bc;--text-3:#8a8e98;--text-4:#6b6e76;--teal:#5de0c4;--violet:#9a92ef;--radius:10px;--maxw:880px;--font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
+  a{color:inherit;text-decoration:none}
+  img,video{display:block;max-width:100%}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  header{position:sticky;top:0;z-index:50;background:rgba(12,13,16,0.78);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--line)}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 28px}
+  .brand{font-weight:500;font-size:15px}
+  .back{font-size:13.5px;color:var(--text-2);font-family:var(--mono)}
+  .back:hover{color:var(--text)}
+  .ph-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;color:var(--violet);margin:54px 0 16px}
+  h1.title{font-size:clamp(28px,4.6vw,44px);font-weight:600;line-height:1.16;letter-spacing:-0.01em;max-width:720px}
+  .subtitle{color:var(--text-2);font-size:17px;margin-top:18px;max-width:620px}
+  .metabar{display:flex;flex-wrap:wrap;gap:34px;margin:34px 0 0;padding:22px 0;border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line)}
+  .metabar .item h4{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:6px}
+  .metabar .item p{font-size:14px;color:var(--text)}
+  .hero-media{margin:34px 0;width:100%;aspect-ratio:16/9;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;object-fit:cover;background:var(--bg-2)}
+  section.block{margin:54px 0}
+  section.block h2{font-size:13px;font-family:var(--mono);letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:16px}
+  section.block p{color:var(--text-2);font-size:16.5px;margin-bottom:16px;max-width:680px}
+  section.block strong{color:var(--text);font-weight:500}
+  ul.bullets{list-style:none;max-width:680px}
+  ul.bullets li{color:var(--text-2);font-size:16px;padding:9px 0 9px 22px;position:relative;border-top:0.5px solid var(--line)}
+  ul.bullets li:before{content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;background:var(--violet)}
+  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  .gallery img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:var(--radius);border:0.5px solid var(--line-2);background:var(--bg-3)}
+  .gallery img.wide{grid-column:1 / -1;aspect-ratio:16/7}
+  .outcome{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .stat{border:0.5px solid var(--line);border-radius:var(--radius);background:var(--bg-2);padding:20px}
+  .stat .n{font-size:22px;font-weight:600;color:var(--violet)}
+  .stat .l{font-size:13px;color:var(--text-3);margin-top:6px}
+  .pager{display:flex;justify-content:space-between;border-top:0.5px solid var(--line);margin-top:60px;padding:26px 0;font-size:14px}
+  .pager a:hover{color:var(--text)}
+  .pager .mono{font-family:var(--mono);font-size:11px;color:var(--text-4);display:block;margin-bottom:4px}
+  footer{border-top:0.5px solid var(--line);padding:28px 0;margin-top:10px}
+  .foot{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-4);flex-wrap:wrap;gap:10px}
+  .foot .mono{font-family:var(--mono)}
+  @media(max-width:680px){.gallery{grid-template-columns:1fr}.outcome{grid-template-columns:1fr}.metabar{gap:22px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="nav">
+    <a class="brand" href="index.html">Ben Jeffreys</a>
+    <a class="back" href="index.html">&larr; All work</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <p class="ph-eyebrow">VR TRAINING &middot; ROYAL NAVY</p>
+  <h1 class="title">Helmsman Simulator</h1>
+  <p class="subtitle">A virtual-reality trainer that teaches recruits to operate the helm of a Type&nbsp;45 Destroyer — adopted by the Royal Navy.</p>
+
+  <div class="metabar">
+    <div class="item"><h4>Role</h4><p>Lead &amp; production design</p></div>
+    <div class="item"><h4>Context</h4><p>University of Portsmouth</p></div>
+    <div class="item"><h4>Team</h4><p>Group of 10</p></div>
+    <div class="item"><h4>Client</h4><p>MetaverseVR</p></div>
+    <div class="item"><h4>Platform</h4><p>VR · Meta Quest 3</p></div>
+    <div class="item"><h4>Engine</h4><p>Unity · XR Interaction Toolkit</p></div>
+  </div>
+
+  <video class="hero-media" autoplay muted loop playsinline poster="assets/web/helmsman-poster.jpg">
+    <source src="assets/web/helmsman-loop.mp4" type="video/mp4">
+  </video>
+
+  <section class="block">
+    <h2>Overview</h2>
+    <p>The brief was to design a simple, believable simulator that trains recruits on the <strong>helmsman role aboard a Type 45 Destroyer</strong> — replicating the real bridge closely enough to build muscle memory before they ever step aboard a ship.</p>
+    <p>I took a <strong>production and lead design role</strong> on the group project. The result was successful enough that it was <strong>used by the Royal Navy to train helmsmen</strong>, and the work contributed to my First-Class degree and a TIGA Graduate of the Year finalist nomination.</p>
+  </section>
+
+  <section class="block">
+    <h2>Design goals</h2>
+    <ul class="bullets">
+      <li>A bridge environment that <strong>replicates its real-world counterpart</strong>, so the layout itself becomes part of the training.</li>
+      <li><strong>Lifelike inputs</strong> — wheel for rudder, throttle for thrust — to build muscle memory rather than abstract button-pressing.</li>
+      <li>Realistic physics that <strong>accurately replicate the movement of the destroyer</strong>.</li>
+      <li>A <strong>supervisor interface</strong> to inject faults (gyro, steering gear, autopilot, rudder-indicator failures) and change conditions — day, night, fog, rain.</li>
+      <li><strong>Recording functionality</strong> so supervisors can review and assess a recruit's performance afterwards.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>What I designed</h2>
+    <ul class="bullets">
+      <li>Owned the <strong>design vision and production</strong>, coordinating a small team from concept document to working build.</li>
+      <li>Designed the <strong>dual-display supervisor UI</strong> — live readouts for rudder angle, rate of turn, boat speed and heading, plus a fault-injection panel.</li>
+      <li>Specified the <strong>input model</strong>: wheel and throttle processed locally on PC, hand-tracked buttons via the XR Hands plugin on Quest 3.</li>
+      <li>Mapped the <strong>environment to the real space</strong> using image-reference anchoring so the virtual helm lines up with the physical training area.</li>
+    </ul>
+  </section>
+
+  <section class="block">
+    <h2>Selected views</h2>
+    <div class="gallery">
+      <img class="wide" src="assets/web/helmsman-gallery-8.jpg" alt="Helmsman simulator bridge view" loading="lazy">
+      <img src="assets/web/helmsman-gallery-50.jpg" alt="Supervisor interface and instruments" loading="lazy">
+      <img src="assets/web/helmsman-gallery-80.jpg" alt="Bridge instruments and heading display" loading="lazy">
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>Outcome</h2>
+    <p>A working VR trainer that recreates the helm of a Type 45 Destroyer closely enough to be <strong>used by the Royal Navy</strong>, with a supervisor toolset for running realistic fault scenarios.</p>
+    <div class="outcome">
+      <div class="stat"><div class="n">Royal Navy</div><div class="l">Adopted to train helmsmen</div></div>
+      <div class="stat"><div class="n">Lead design</div><div class="l">Concept to working build</div></div>
+      <div class="stat"><div class="n">TIGA</div><div class="l">Contributed to Grad-of-the-Year finalist</div></div>
+    </div>
+  </section>
+
+  <nav class="pager">
+    <a href="index.html"><span class="mono">BACK TO</span>All work</a>
+    <a href="mocap.html"><span class="mono">NEXT</span>Real-time Mocap &rarr; AR &rarr;</a>
+  </nav>
+</main>
+
+<footer>
+  <div class="wrap foot">
+    <span>&copy; 2026 Ben Jeffreys</span>
+    <span class="mono"><a href="https://viultimatehd1.artstation.com/" target="_blank" rel="noopener">ArtStation</a> · <a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
+  </div>
+</footer>
+</body>
+</html>
