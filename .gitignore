@@ -1,0 +1,15 @@
+# macOS AppleDouble metadata files
+._*
+
+# Local raw media that should not be committed
+assets/Ben Jeffreys Final Year Project Video.mp4
+assets/IMG_7999.MOV
+assets/IMG_8001.MOV
+
+# AppleDouble / macOS metadata files in tracked folders
+assets/._*
+site/._*
+site/assets/web/._*
+
+# macOS system files
+.DS_Store
