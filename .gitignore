@@ -14,6 +14,9 @@ assets/*.pdf
 # Duplicate staging folder — site is served from repo root
 site/
 
+# Editable CV source (the published PDF lives in assets/)
+*.docx
+
 # Unused scan exports
 assets/web/_pdfcheck-*.jpg
 assets/web/_scan-*.jpg
