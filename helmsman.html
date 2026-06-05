@@ -48,6 +48,10 @@
   footer{border-top:0.5px solid var(--line);padding:28px 0;margin-top:10px}
   .foot{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-4);flex-wrap:wrap;gap:10px}
   .foot .mono{font-family:var(--mono)}
+  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
+  .video-card{border:0.5px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
+  .video-card iframe{width:100%;aspect-ratio:16/9;border:0}
+  @media(max-width:780px){.video-grid{grid-template-columns:1fr}}
   @media(max-width:680px){.gallery{grid-template-columns:1fr}.outcome{grid-template-columns:1fr}.metabar{gap:22px}}
 </style>
 </head>
@@ -114,6 +118,23 @@
   </section>
 
   <section class="block">
+    <h2>Video demos</h2>
+    <p>More material from my YouTube channel: build walkthroughs, training footage and project demos that add context to the Helmsman Simulator.</p>
+    <div class="video-grid">
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/L-61YH6qw40" title="YouTube video: Helmsman demo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/3YAoLwWrUrQ" title="YouTube video: Helmsman demo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card">
+        <iframe src="https://www.youtube.com/embed/y5Fwtj7vvVc" title="YouTube video: Helmsman demo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+    <p>See the full channel for more behind-the-scenes work and XR demos: <a href="https://www.youtube.com/@BenJeffreys-x6x" target="_blank" rel="noopener">youtube.com/@BenJeffreys-x6x</a></p>
+  </section>
+
+  <section class="block">
     <h2>Outcome</h2>
     <p>A working VR trainer that recreates the helm of a Type 45 Destroyer closely enough to be <strong>used by the Royal Navy</strong>, with a supervisor toolset for running realistic fault scenarios.</p>
     <div class="outcome">
@@ -132,7 +153,7 @@
 <footer>
   <div class="wrap foot">
     <span>&copy; 2026 Ben Jeffreys</span>
-    <span class="mono"><a href="https://viultimatehd1.artstation.com/" target="_blank" rel="noopener">ArtStation</a> · <a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
+    <span class="mono"><a href="https://viultimatehd1.artstation.com/" target="_blank" rel="noopener">ArtStation</a> · <a href="https://www.youtube.com/@BenJeffreys-x6x" target="_blank" rel="noopener">YouTube</a> · <a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
   </div>
 </footer>
 </body>
