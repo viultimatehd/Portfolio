@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>AR in the Built Environment — Ben Jeffreys</title>
-<meta name="description" content="Case study: an augmented-reality viewer that places a planned building at its exact geolocated spot in the world to assess developments on-site, by Ben Jeffreys." />
+<title>AR Table-Top App — E1 World Championship — Ben Jeffreys</title>
+<meta name="description" content="Case study: a live, geolocated augmented-reality 'table-top' race viewer for the UIM E1 world championship, owned end-to-end by Ben Jeffreys at Badass Studios." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -27,8 +27,7 @@
   .metabar{display:flex;flex-wrap:wrap;gap:34px;margin:34px 0 0;padding:22px 0;border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line)}
   .metabar .item h4{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:6px}
   .metabar .item p{font-size:14px;color:var(--text)}
-  .hero-media{margin:34px 0;width:100%;aspect-ratio:16/9;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;background:var(--bg-2)}
-  .hero-media iframe{width:100%;height:100%;border:0;display:block}
+  .hero-media{margin:34px 0;width:100%;aspect-ratio:1000/690;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;object-fit:cover;background:var(--bg-2)}
   section.block{margin:54px 0}
   section.block h2{font-size:13px;font-family:var(--mono);letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:16px}
   section.block p{color:var(--text-2);font-size:16.5px;margin-bottom:16px;max-width:680px}
@@ -36,13 +35,17 @@
   ul.bullets{list-style:none;max-width:680px}
   ul.bullets li{color:var(--text-2);font-size:16px;padding:9px 0 9px 22px;position:relative;border-top:0.5px solid var(--line)}
   ul.bullets li:before{content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
+  .outcome{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .stat{border:0.5px solid var(--line);border-radius:var(--radius);background:var(--bg-2);padding:20px}
+  .stat .n{font-size:22px;font-weight:600;color:var(--teal)}
+  .stat .l{font-size:13px;color:var(--text-3);margin-top:6px}
   .pager{display:flex;justify-content:space-between;border-top:0.5px solid var(--line);margin-top:60px;padding:26px 0;font-size:14px}
   .pager a{color:var(--text-2)}.pager a:hover{color:var(--text)}
   .pager .mono{font-family:var(--mono);font-size:11px;color:var(--text-4);display:block;margin-bottom:4px}
   footer{border-top:0.5px solid var(--line);padding:28px 0;margin-top:10px}
   .foot{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-4);flex-wrap:wrap;gap:10px}
   .foot .mono{font-family:var(--mono)}
-  @media(max-width:680px){.metabar{gap:22px}}
+  @media(max-width:680px){.outcome{grid-template-columns:1fr}.metabar{gap:22px}}
 </style>
 </head>
 <body>
@@ -54,46 +57,58 @@
 </header>
 
 <main class="wrap">
-  <p class="ph-eyebrow">AUGMENTED REALITY &middot; BUILT ENVIRONMENT</p>
-  <h1 class="title">AR in the Built Environment</h1>
-  <p class="subtitle">An augmented-reality viewer that places a planned building at its exact, geolocated spot in the world — so planners, developers and the public can assess a development in&nbsp;situ, at full scale, before it&rsquo;s built.</p>
+  <p class="ph-eyebrow">AUGMENTED REALITY &middot; UIM E1 WORLD CHAMPIONSHIP</p>
+  <h1 class="title">AR Table-Top App</h1>
+  <p class="subtitle">A live, geolocated augmented-reality &lsquo;table-top&rsquo; that brings the race onto any surface — leaderboard, telemetry and the course playing out in real time, viewed on-site at the world&rsquo;s first electric-powerboat championship.</p>
 
   <div class="metabar">
-    <div class="item"><h4>Role</h4><p>Designer &amp; developer</p></div>
-    <div class="item"><h4>Context</h4><p>University of Portsmouth</p></div>
+    <div class="item"><h4>Role</h4><p>Product owner — UI, UX &amp; scene composition</p></div>
+    <div class="item"><h4>Studio</h4><p>Badass Studios</p></div>
+    <div class="item"><h4>Event</h4><p>UIM E1 World Championship</p></div>
+    <div class="item"><h4>Platform</h4><p>Mobile AR</p></div>
     <div class="item"><h4>Engine</h4><p>Unreal Engine</p></div>
-    <div class="item"><h4>Type</h4><p>Geolocated AR</p></div>
   </div>
 
-  <div class="hero-media">
-    <iframe src="https://www.youtube.com/embed/qU6kh3WD3HM" title="AR in the built environment — geolocated building viewer" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
+  <video class="hero-media" autoplay muted loop playsinline poster="assets/web/arapp-poster.jpg">
+    <source src="assets/web/arapp-loop.mp4" type="video/mp4">
+  </video>
 
   <section class="block">
     <h2>Overview</h2>
-    <p>This project uses <strong>real-time rendering and AR</strong> to drop a proposed building onto its real location — anchored to its actual coordinates so you can walk around the site and see the development <strong>at full scale, in context</strong>, long before ground is broken.</p>
-    <p>It opens up <strong>collaborative opportunities in the built environment</strong>: planners, architects, developers and residents can stand on the same spot and assess massing, sightlines and impact together, rather than from a flat render or a model on a table.</p>
+    <p>The E1 Series is the world&rsquo;s first championship for electric powerboats, racing in the harbours of major cities. Badass Studios built a companion <strong>augmented-reality &lsquo;table-top&rsquo;</strong> that lets fans and broadcasters see the whole race as a 3D model anchored to the real world — placed on a balcony rail overlooking the course, or any flat surface — with a live leaderboard and telemetry.</p>
+    <p>I was <strong>product owner of the AR app and led its development end to end</strong>, making every design decision from UI and UX through to scene composition, and integrating live race data so the model updates in real time.</p>
   </section>
 
   <section class="block">
-    <h2>What I built</h2>
+    <h2>What I owned</h2>
     <ul class="bullets">
-      <li>A <strong>geolocated AR viewer</strong> that anchors a building model to its exact real-world position and scale.</li>
-      <li>Real-time <strong>lighting and materials</strong> so the proposal reads believably against the real surroundings.</li>
-      <li>A walk-around experience aimed at <strong>planning and development assessment</strong> — judging a building in the place it will actually stand.</li>
+      <li><strong>End-to-end ownership</strong> of the AR app — concept, UI, UX and the on-surface scene composition.</li>
+      <li>Integrated <strong>live race telemetry</strong> so positions, gaps and the course render and update in real time.</li>
+      <li>Designed a <strong>legible HUD</strong> — leaderboard, team data and controls — that stays readable against a bright, real-world backdrop.</li>
+      <li>Handled <strong>on-site setup and operation</strong> at live race weekends, including Lake Como.</li>
     </ul>
+  </section>
+
+  <section class="block">
+    <h2>Why it&rsquo;s design work</h2>
+    <p>An AR table-top is a spatial design problem as much as a UI one: <strong>where the model sits in the world, how the camera reads it, and how a viewer parses a live race at a glance</strong>. It&rsquo;s the same thinking I bring to a game scene — staging information in 3D space so it&rsquo;s instantly legible.</p>
+    <div class="outcome">
+      <div class="stat"><div class="n">Product owner</div><div class="l">Owned the AR app end to end</div></div>
+      <div class="stat"><div class="n">Live</div><div class="l">Real-time telemetry into AR</div></div>
+      <div class="stat"><div class="n">On-site</div><div class="l">Operated at live race weekends</div></div>
+    </div>
   </section>
 
   <nav class="pager">
     <a href="index.html"><span class="mono">BACK TO</span>All work</a>
-    <a href="shatterfall.html"><span class="mono">NEXT</span>Shatterfall &rarr;</a>
+    <a href="project.html"><span class="mono">NEXT</span>E1 Series Simulator &rarr;</a>
   </nav>
 </main>
 
 <footer>
   <div class="wrap foot">
     <span>&copy; 2026 Ben Jeffreys</span>
-    <span class="mono"><a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
+    <span class="mono"><a href="https://www.youtube.com/@BenJeffreys-x6x" target="_blank" rel="noopener">YouTube</a> · <a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
   </div>
 </footer>
 </body>

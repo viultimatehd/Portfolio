@@ -4,49 +4,31 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>E1 Series Simulator — Ben Jeffreys</title>
-<meta name="description" content="Case study: AR broadcast and a real-time digital twin for the E1 Series, designed by Ben Jeffreys at Badass Studios." />
-
+<meta name="description" content="Case study: the E1 Series racing simulator game for fan engagement and live events, with QA and supporting development by Ben Jeffreys at Badass Studios." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
 <style>
-  :root{
-    --bg:#0c0d10;--bg-2:#101319;--bg-3:#14171d;
-    --line:#1e2025;--line-2:#23262d;
-    --text:#f4f5f7;--text-2:#aeb2bc;--text-3:#8a8e98;--text-4:#6b6e76;
-    --teal:#5de0c4;--violet:#9a92ef;
-    --radius:10px;--maxw:880px;
-    --font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace;
-  }
+  :root{--bg:#0c0d10;--bg-2:#101319;--bg-3:#14171d;--line:#1e2025;--line-2:#23262d;--text:#f4f5f7;--text-2:#aeb2bc;--text-3:#8a8e98;--text-4:#6b6e76;--teal:#5de0c4;--violet:#9a92ef;--radius:10px;--maxw:880px;--font:'Inter',system-ui,-apple-system,sans-serif;--mono:'JetBrains Mono',ui-monospace,monospace}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--bg);color:var(--text);font-family:var(--font);line-height:1.7;-webkit-font-smoothing:antialiased}
   a{color:inherit;text-decoration:none}
   img,video{display:block;max-width:100%}
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px}
-
   header{position:sticky;top:0;z-index:50;background:rgba(12,13,16,0.78);backdrop-filter:blur(12px);border-bottom:0.5px solid var(--line)}
   .nav{display:flex;align-items:center;justify-content:space-between;height:64px;max-width:var(--maxw);margin:0 auto;padding:0 28px}
   .brand{font-weight:500;font-size:15px}
   .back{font-size:13.5px;color:var(--text-2);font-family:var(--mono)}
   .back:hover{color:var(--text)}
-
   .ph-eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;color:var(--teal);margin:54px 0 16px}
   h1.title{font-size:clamp(28px,4.6vw,44px);font-weight:600;line-height:1.16;letter-spacing:-0.01em;max-width:720px}
-  .subtitle{color:var(--text-2);font-size:17px;margin-top:18px;max-width:620px}
-
+  .subtitle{color:var(--text-2);font-size:17px;margin-top:18px;max-width:640px}
   .metabar{display:flex;flex-wrap:wrap;gap:34px;margin:34px 0 0;padding:22px 0;border-top:0.5px solid var(--line);border-bottom:0.5px solid var(--line)}
   .metabar .item h4{font-family:var(--mono);font-size:10.5px;letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:6px}
   .metabar .item p{font-size:14px;color:var(--text)}
-
-  .hero-media{margin:34px 0;aspect-ratio:16/9;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;background:var(--bg-2);position:relative}
-  .hero-media img{width:100%;height:100%;object-fit:cover;display:block}
-  .video-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
-  .video-card{border:0.5px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--bg-2)}
-  .video-card iframe{width:100%;aspect-ratio:16/9;border:0}
-  @media(max-width:780px){.video-grid{grid-template-columns:1fr}}
-
+  .hero-media{margin:34px 0;width:100%;aspect-ratio:16/9;border-radius:var(--radius);border:0.5px solid var(--line-2);overflow:hidden;background:var(--bg-2)}
+  .hero-media iframe{width:100%;height:100%;border:0;display:block}
   section.block{margin:54px 0}
   section.block h2{font-size:13px;font-family:var(--mono);letter-spacing:0.12em;color:var(--text-4);text-transform:uppercase;margin-bottom:16px}
   section.block p{color:var(--text-2);font-size:16.5px;margin-bottom:16px;max-width:680px}
@@ -54,34 +36,20 @@
   ul.bullets{list-style:none;max-width:680px}
   ul.bullets li{color:var(--text-2);font-size:16px;padding:9px 0 9px 22px;position:relative;border-top:0.5px solid var(--line)}
   ul.bullets li:before{content:"";position:absolute;left:0;top:18px;width:7px;height:7px;border-radius:50%;background:var(--teal)}
-
-  .gallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:24px 0}
-  .gallery .shot{aspect-ratio:4/3;border-radius:var(--radius);border:0.5px solid var(--line-2);background:var(--bg-3);
-    display:flex;align-items:center;justify-content:center;color:var(--text-4);font-family:var(--mono);font-size:11.5px;overflow:hidden}
-  .gallery .shot.wide{grid-column:1 / -1;aspect-ratio:16/7}
-
   .outcome{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
   .stat{border:0.5px solid var(--line);border-radius:var(--radius);background:var(--bg-2);padding:20px}
-  .stat .n{font-size:24px;font-weight:600;color:var(--teal)}
+  .stat .n{font-size:22px;font-weight:600;color:var(--teal)}
   .stat .l{font-size:13px;color:var(--text-3);margin-top:6px}
-
   .pager{display:flex;justify-content:space-between;border-top:0.5px solid var(--line);margin-top:60px;padding:26px 0;font-size:14px}
   .pager a{color:var(--text-2)}.pager a:hover{color:var(--text)}
   .pager .mono{font-family:var(--mono);font-size:11px;color:var(--text-4);display:block;margin-bottom:4px}
-
   footer{border-top:0.5px solid var(--line);padding:28px 0;margin-top:10px}
   .foot{display:flex;justify-content:space-between;font-size:12.5px;color:var(--text-4);flex-wrap:wrap;gap:10px}
   .foot .mono{font-family:var(--mono)}
-
-  @media(max-width:680px){
-    .gallery{grid-template-columns:1fr}
-    .outcome{grid-template-columns:1fr}
-    .metabar{gap:22px}
-  }
+  @media(max-width:680px){.outcome{grid-template-columns:1fr}.metabar{gap:22px}}
 </style>
 </head>
 <body>
-
 <header>
   <div class="nav">
     <a class="brand" href="index.html">Ben Jeffreys</a>
@@ -90,84 +58,47 @@
 </header>
 
 <main class="wrap">
-
-  <p class="ph-eyebrow">AR APP &middot; REAL-TIME DIGITAL TWIN</p>
-  <h1 class="title">E1 Series AR app &amp; broadcast</h1>
-  <p class="subtitle">The augmented-reality app I owned end to end for the world's first electric powerboat championship — and the real-time digital twin it plugged into.</p>
+  <p class="ph-eyebrow">SIMULATION &middot; RACING GAME</p>
+  <h1 class="title">E1 Series Simulator</h1>
+  <p class="subtitle">A racing simulator game for the UIM E1 world championship — built for fan engagement and played at live race weekends.</p>
 
   <div class="metabar">
-    <div class="item"><h4>Role</h4><p>Junior XR Designer</p></div>
+    <div class="item"><h4>Role</h4><p>QA &amp; supporting development</p></div>
     <div class="item"><h4>Studio</h4><p>Badass Studios</p></div>
-    <div class="item"><h4>Year</h4><p>2025&ndash;26</p></div>
-    <div class="item"><h4>Platform</h4><p>AR broadcast · Mobile</p></div>
-    <div class="item"><h4>Tools</h4><p>Unreal Engine, Figma</p></div>
+    <div class="item"><h4>Type</h4><p>Racing simulator</p></div>
+    <div class="item"><h4>Context</h4><p>E1 fan engagement &middot; live events</p></div>
   </div>
 
   <div class="hero-media">
-    <img src="https://img.youtube.com/vi/wrsvTTfnnHo/maxresdefault.jpg" alt="E1 Series digital twin in Unreal Engine">
+    <iframe src="https://www.youtube.com/embed/-potR7VruYc" title="E1 Series Miami Pro Sim sizzle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 
-  <!-- ============ OVERVIEW ============ -->
   <section class="block">
     <h2>Overview</h2>
-    <p>The E1 Series is the world's first electric powerboat racing championship. Badass Studios was brought in to make the racing more legible and exciting for a broadcast audience through augmented reality. I joined the project to help take it from <strong>concept through to on-site delivery</strong>.</p>
-    <p>The headline idea was a <strong>real-time digital twin of the race</strong> — capturing live data so viewers could see positions, gaps, and track information rendered as AR over the broadcast feed. I <strong>contributed to that concept and its outreach</strong>, and I <strong>owned the AR app</strong> that brought the experience to audiences — making every design decision from UI and UX through to scene composition.</p>
+    <p>Alongside the AR work, Badass Studios built a <strong>racing simulator game</strong> for the E1 Series — a way for fans to get behind the wheel of the electric powerboats, both online and at live race weekends. The sizzle above is from the <strong>Miami</strong> round.</p>
+    <p>I worked on the simulator as a <strong>tester and supporting developer</strong>, and ran the <strong>arcade gaming setup at live events</strong> so fans could play on-site.</p>
   </section>
 
-  <!-- ============ MY ROLE ============ -->
   <section class="block">
     <h2>What I did</h2>
     <ul class="bullets">
-      <li><strong>Owned the E1 AR app end to end</strong> — led development and made every decision from UI and UX through to scene composition.</li>
-      <li>Integrated <strong>live race telemetry</strong> into the AR experience on rapid delivery timelines.</li>
-      <li>Contributed to the <strong>concept and outreach</strong> for the real-time digital-twin project, including support for the Epic Games MegaGrant pitch.</li>
-      <li>Ran <strong>quality assurance</strong> across AR broadcast, digital-twin, and simulator builds.</li>
-      <li>Handled <strong>on-site setup and operation</strong> of AR broadcast elements and simulators during live events.</li>
-      <li>Produced asset breakdowns and supported <strong>project budgeting</strong>.</li>
+      <li><strong>Tested and supported development</strong> of the simulator across builds, feeding issues and feedback back into the team.</li>
+      <li>Ran <strong>arcade gaming support at live events</strong> — setup, operation and front-of-house for fans.</li>
+      <li>Helped tune the experience for a <strong>fan-engagement audience</strong>: quick to pick up, fun to play, true to the racing.</li>
     </ul>
   </section>
 
-  <!-- ============ VIDEOS ============ -->
-  <section class="block">
-    <h2>Video</h2>
-    <p>The E1 digital twin built in Unreal Engine, and the Miami Pro Sim sizzle reel.</p>
-    <div class="video-grid">
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/wrsvTTfnnHo" title="E1 Series — Unreal Engine digital twin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="video-card">
-        <iframe src="https://www.youtube.com/embed/-potR7VruYc" title="E1 Series Miami Pro Sim sizzle" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ OUTCOME ============ -->
-  <section class="block">
-    <h2>Outcome</h2>
-    <p>The work contributed to <strong>award-winning XR solutions</strong> for the E1 Series and shipped live across real race weekends.</p>
-    <div class="outcome">
-      <div class="stat"><div class="n">Live</div><div class="l">Real-time telemetry into AR broadcast</div></div>
-      <div class="stat"><div class="n">Award</div><div class="l">Recognised XR solution for E1</div></div>
-      <div class="stat"><div class="n">AR app</div><div class="l">Owned end to end — UI, UX, scene comp</div></div>
-    </div>
-  </section>
-
-  <!-- ============ PAGER ============ -->
   <nav class="pager">
     <a href="index.html"><span class="mono">BACK TO</span>All work</a>
-    <a href="archviz.html"><span class="mono">NEXT</span>Architecture Viz &rarr;</a>
+    <a href="helmsman.html"><span class="mono">NEXT</span>Helmsman Simulator &rarr;</a>
   </nav>
-
 </main>
 
 <footer>
   <div class="wrap foot">
     <span>&copy; 2026 Ben Jeffreys</span>
-    <span class="mono">
-      <a href="mailto:benjeffreyshd@gmail.com">Email</a>
-    </span>
+    <span class="mono"><a href="https://www.youtube.com/@BenJeffreys-x6x" target="_blank" rel="noopener">YouTube</a> · <a href="mailto:benjeffreyshd@gmail.com">Email</a></span>
   </div>
 </footer>
-
 </body>
 </html>

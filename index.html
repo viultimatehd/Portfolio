@@ -97,7 +97,7 @@
 
   /* ---------- work grid ---------- */
   .work{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-  .card{display:block;border-radius:var(--radius);overflow:hidden;transition:transform .18s ease}
+  .card{display:flex;flex-direction:column;border-radius:var(--radius);transition:transform .18s ease}
   .card:hover{transform:translateY(-3px)}
   .card .thumb{
     position:relative;aspect-ratio:16/10;border:0.5px solid var(--line-2);border-radius:var(--radius);
@@ -110,7 +110,7 @@
   .card .thumb .ph{font-size:34px}
   .card.c-teal .thumb .ph{color:var(--teal)}
   .card.c-violet .thumb .ph{color:var(--violet)}
-  .card .meta{padding:13px 2px 0}
+  .card .meta{order:-1;padding:0 2px 11px}
   .card .meta h3{font-size:15px;font-weight:500;color:var(--text)}
   .card .meta p{font-size:12.5px;color:var(--text-3);margin-top:3px}
   .tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:0.06em;
@@ -191,9 +191,9 @@
     </video>
     <div class="grid-overlay"></div>
     <div class="hero-inner">
-      <p class="eyebrow">IMMERSIVE XR DESIGNER</p>
+      <p class="eyebrow">XR DESIGNER · GAMES &amp; EXPERIENCE DESIGN</p>
       <h1>Designing immersive games and experiences — and building, testing, and rebuilding them until they work.</h1>
-      <p class="lede">XR designer with a games-design heart and a performer's eye for a scene. I've designed difficulty and encounter pacing on a tabletop game, recreated a ship's bridge in VR for Royal Navy training, owned the AR app on the award-winning E1 Series, and shipped XR for Take-Two on Apple Vision Pro — and I direct and perform on motion-capture stages. First-Class BSc in VR/AR and TIGA Graduate of the Year finalist, currently at Badass Studios — and keen to move into game &amp; experience design.</p>
+      <p class="lede">XR designer with real-time AR, VR and motion-capture experience — and a games-design heart. I'm product owner of the table-top AR app for the UIM E1 world championship, recreated a ship's bridge in VR for Royal Navy training, developed an Apple Vision Pro concept for Take-Two, and I direct and perform on motion-capture stages. First-Class BSc in VR/AR and TIGA Graduate of the Year finalist, currently at Badass Studios.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#work">View work</a>
         <a class="btn btn-ghost" href="#contact">Get in touch</a>
@@ -204,7 +204,7 @@
   <!-- ============ SHOWREEL ============ -->
   <section class="showreel">
     <div class="sec-head" style="margin-top:48px">
-      <h2>Showreel</h2>
+      <h2>University Showreel</h2>
     </div>
     <div class="video-card">
       <iframe src="https://www.youtube.com/embed/ruT21W8QxxA" title="Ben Jeffreys showreel" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -215,18 +215,29 @@
   <section id="work">
     <div class="sec-head">
       <h2>Selected work</h2>
-      <span class="count">05</span>
+      <span class="count">06</span>
     </div>
     <div class="work">
 
-      <a class="card c-violet" href="shatterfall.html">
+      <a class="card c-teal" href="arapp.html">
         <div class="thumb">
-          <span class="tag">GAME DESIGN · ENCOUNTERS</span>
-          <img src="assets/web/shatterfall-maptiles.jpg" alt="Shatterfall tile-based map and encounter design" loading="lazy">
+          <span class="tag">AR · LIVE EVENTS</span>
+          <img src="assets/web/arapp-poster.jpg" alt="AR table-top race viewer for the E1 world championship" loading="lazy">
         </div>
         <div class="meta">
-          <h3>Shatterfall</h3>
-          <p>Co-op survival game · difficulty scaling, item balancing &amp; encounter pacing</p>
+          <h3>AR Table-Top App</h3>
+          <p>Product owner · live AR race viewer for the UIM E1 world championship</p>
+        </div>
+      </a>
+
+      <a class="card c-teal" href="project.html">
+        <div class="thumb">
+          <span class="tag">SIMULATION · GAME</span>
+          <img src="https://img.youtube.com/vi/-potR7VruYc/hqdefault.jpg" alt="E1 Series racing simulator" loading="lazy">
+        </div>
+        <div class="meta">
+          <h3>E1 Series Simulator</h3>
+          <p>Race simulator for fan engagement · Badass Studios</p>
         </div>
       </a>
 
@@ -237,7 +248,7 @@
         </div>
         <div class="meta">
           <h3>Helmsman Simulator</h3>
-          <p>Lead design · recreating a ship's bridge as a believable space · built for Royal Navy training</p>
+          <p>Lead designer &amp; producer · ship's bridge VR · built for Royal Navy training</p>
         </div>
       </a>
 
@@ -252,25 +263,25 @@
         </div>
       </a>
 
-      <a class="card c-teal" href="project.html">
+      <a class="card c-teal" href="archviz.html">
         <div class="thumb">
-          <span class="tag">AR · BROADCAST</span>
-          <img src="https://img.youtube.com/vi/wrsvTTfnnHo/hqdefault.jpg" alt="E1 Series AR broadcast and digital twin" loading="lazy">
+          <span class="tag">AR · BUILT ENVIRONMENT</span>
+          <img src="https://img.youtube.com/vi/qU6kh3WD3HM/hqdefault.jpg" alt="Geolocated AR viewer for planned buildings" loading="lazy">
         </div>
         <div class="meta">
-          <h3>E1 Series Simulator</h3>
-          <p>AR broadcast &amp; real-time digital twin · Badass Studios</p>
+          <h3>AR in the Built Environment</h3>
+          <p>Geolocated AR viewer for assessing planned buildings on-site</p>
         </div>
       </a>
 
-      <a class="card c-teal" href="archviz.html">
+      <a class="card c-violet" href="shatterfall.html">
         <div class="thumb">
-          <span class="tag">REALTIME · VIZ</span>
-          <img src="https://img.youtube.com/vi/qU6kh3WD3HM/hqdefault.jpg" alt="Real-time architecture visualisation" loading="lazy">
+          <span class="tag">GAME DESIGN · ENCOUNTERS</span>
+          <img src="assets/web/shatterfall-maptiles.jpg" alt="Shatterfall tile-based map and encounter design" loading="lazy">
         </div>
         <div class="meta">
-          <h3>Architecture Visualisation</h3>
-          <p>Real-time architectural walkthrough</p>
+          <h3>Shatterfall</h3>
+          <p>Undergraduate game design · difficulty scaling, item balancing &amp; encounter pacing</p>
         </div>
       </a>
 
